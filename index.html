@@ -3,76 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery Bia Mộ</title>
+    <title>Điêu Khắc Đá Tiến Thành</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
             padding: 20px;
-            max-width: 1200px;
-            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .gallery img {
+        .contact-info {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+        .contact-info a:hover {
+            transform: scale(1.1);
+        }
+        .contact-info a.rung:hover {
+            animation: rung 0.2s infinite;
+        }
+        @keyframes rung {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input, textarea {
             width: 100%;
-            height: auto;
-            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            transition: transform 0.3s ease;
         }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 80%;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
+        button {
+            background: #28a745;
             color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
         }
     </style>
 </head>
 <body>
-    <h1>Thư Viện Ảnh Bia Mộ</h1>
-    <div class="gallery">
-        <img src="image1.jpg" onclick="openModal(this.src)">
-        <img src="image2.jpg" onclick="openModal(this.src)">
-        <img src="image3.jpg" onclick="openModal(this.src)">
-        <!-- Thêm ảnh khác ở đây -->
+    <div class="container">
+        <h2>Điêu Khắc Đá Tiến Thành</h2>
+        <div class="contact-info">
+            <p><strong>Tên:</strong> Nguyễn Tiến Thành</p>
+            <p><strong>Email:</strong> dieukhacdatienthanh@gmail.com</p>
+            <p><strong>SĐT:</strong> 0973372735 | 0366061885</p>
+            <p>
+                <a href="https://zalo.me/0973372735" class="rung">📱 Zalo</a>
+                <a href="https://m.me/" class="rung">💬 Messenger</a>
+            </p>
+        </div>
+        <h3>Liên hệ với chúng tôi</h3>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Tên của bạn" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Số điện thoại của bạn" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email của bạn (không bắt buộc)">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Thông tin cần gửi" required></textarea>
+            </div>
+            <button type="submit">Gửi thông tin</button>
+        </form>
     </div>
-    <div class="modal" id="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img id="modal-img">
-    </div>
-    <script>
-        function openModal(src) {
-            document.getElementById('modal-img').src = src;
-            document.getElementById('modal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
